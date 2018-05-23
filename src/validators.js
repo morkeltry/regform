@@ -32,7 +32,7 @@ console.log('validating phone');
 validators.username = text => {
 console.log('validating username');
   const containsNonAlphanumPlusRegExp = /[^0-9^a-z-_#]/gi ;
-  if (text.length < 8)
+  if (text.length < 3)
     return ' must be at least 3 alphanumeric characters (and _-#)';
   let fails = text.match (containsNonAlphanumPlusRegExp)
   if (fails)

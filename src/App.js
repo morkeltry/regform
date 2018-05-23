@@ -13,7 +13,16 @@ class App extends Component {
     this.updateValidationErrorState = (newState) => {
       this.setState (newState)
     };
-  }
+  };
+
+  formFields = [
+    ['Email: ', 'email', 'email', 'me@me.me', true],
+    ['Phone: ', 'phone', 'text', 'We may need to contact you about your appointment'],
+    ['Choose a username  ', 'username', 'text', 'Please enter your desired username'],
+    ['Enter a password ', 'password', 'password', null],
+    ['Please tick this box if we may contact you with great stuff', 'consent', 'checkbox', null]
+  ];
+
 
   render() {
     return (
@@ -22,43 +31,20 @@ class App extends Component {
           <h1 className="App-title">Register yourself, yo..</h1>
         </header>
         <form className="form-flex form-styled">
+
           <p className="hello"> Please fill in our beautifully styled form </p>
+
+          {this.formFields.map (fieldContents =>
           <TitledInputElement
-            title="Email: "
-            required
-            type="email"
-            name="email"
-            placeholder="me@me.me"
-            update={this.updateValidationErrorState}
-            errorState={this.state['email']}
-          />
-          <TitledInputElement
-            title="Phone: "
-            type="text"
-            name="phone"
-            placeholder="We may need to contact you about your appointment"
-            update={this.updateValidationErrorState}
-          />
-          <TitledInputElement
-            title="Choose a username "
-            required
-            type="text"
-            name="username"
-            placeholder="Please enter your desired username"
-            update={this.updateValidationErrorState}
-          />
-          <TitledInputElement
-            title="Enter a password "
-            required
-            type="password"
-            name="password"
-            update={this.updateValidationErrorState}
-          />
-          <TitledInputElement
-            title="Please tick this box if we may contact you with great stuff"
-            type="checkbox"
-            name="consent"
-          />
+            title = {fieldContents[0]}
+            name = {fieldContents[1]}
+            type = {fieldContents[2]}
+            placeholder = {fieldContents[3]}
+            required = {!!fieldContents[4]}
+            update = {this.updateValidationErrorState}
+            errorState = {this.state[fieldContents[1]]}
+          />)}
+
           <ValidationErrorMessage
             message = {this.state.message}
           />
