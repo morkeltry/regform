@@ -38,7 +38,8 @@ class App extends Component {
       this.state[field[1]] === false
     )
 
-  findErrors = ()=> {
+  findErrors = (ev)=> {
+    ev.preventDefault();
     let newMessage =
       this.formFields
         .filter (field => this.state[field[1]])
@@ -63,7 +64,7 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Register yourself, yo..</h1>
         </header>
-        <form className="form-flex form-styled"  action={postUrl} method="post">
+        <form className="form-flex form-styled"  action={postUrl} method="post" enctype="multipart/form-data">
 
           <p className="hello"> Please fill in our beautifully styled form </p>
 

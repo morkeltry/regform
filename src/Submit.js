@@ -3,9 +3,9 @@ import './Submit.css';
 // import {postUrl} from './post-url.js';
 
 const postUrl = 'https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test';
-const standardHeaders = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
+const headers = {
+    'Content-Type': 'multipart/form-data',
+    'Accept': 'text/html'
 }
 
 class Submit extends Component {
@@ -13,9 +13,10 @@ class Submit extends Component {
   submitHandler = (ev, setters)=> {
     // ev.preventDefault();
     console.log('Doing submit ',ev.target);
-    fetch (postUrl, standardHeaders)
-      .then (setters.onSuccess)
-      .catch (setters.onPostRequestFail)
+    console.log('parent:',ev.target.parentElement);
+    // fetch (postUrl, headers)
+    //   .then (setters.onSuccess)
+    //   .catch (setters.onPostRequestFail)
   }
 
   render() {
