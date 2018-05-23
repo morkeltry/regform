@@ -33,7 +33,8 @@ class App extends Component {
           <TitledInputElement
             title="Enter a password "
             required
-            type="password" />
+            type="password"
+            name="password" />
           <TitledInputElement
             title="Please tick this box if we may contact you with great stuff"
             type="checkbox"

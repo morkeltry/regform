@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
 import './TitledInputElement.css';
+import validators from './validators';
 
 class TitledInputElement extends Component {
+
+  validate(event) {
+    let node = event.target;
+    let objection = validators[node.id];
+
+    return 
+  }
+
   render() {
     return (
       <div className="flex-container">
@@ -12,6 +21,7 @@ class TitledInputElement extends Component {
             type={this.props.type || 'text'}
             name={this.props.name}
             placeholder={this.props.placeholder || ''}
+            onChange={this.validate}
           />
       </div>
     );
