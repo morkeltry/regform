@@ -28,14 +28,20 @@ class App extends Component {
 
   count = 0;
 
-  zeroErrors = ()=> {
-    let r=this.formFields.every (field => {
-      console.log(this.count++, field[1],':',this.state[field[1]]);
-      return (this.state[field[1]] === false)
-    })
-    console.log('ZE:',r);
-    return r;
-    }
+  zeroErrors = ()=>
+    this.formFields.every (field =>
+      this.state[field[1]] === false
+    )
+
+  findErrors = ()=> {
+    let newMessage =
+      this.formFields
+        .filter (field => this.state[field[1]])
+        .map(el=>el[1]+this.state[el[1]])
+    if (!newMessage.length && !this.zeroErrors())
+      newMessage = 'Please fill in the required fields'
+    this.setState ({message : newMessage});
+  }
 
   render() {
     return (
@@ -58,18 +64,17 @@ class App extends Component {
             required = {!!required}
             update = {this.updateValidationErrorState}
             errorState = {this.state[fieldContents[1]]}
-            ZE = {this.zeroErrors}
           />})}
-
-          <ValidationErrorMessage
-            message = {this.state.message}
-          />
 
           <Submit
             title = 'OK, register me!'
             clickable = {this.zeroErrors}
+            nag = {this.findErrors}
            />
 
+         <ValidationErrorMessage
+           message = {this.state.message}
+         />
         </form>
       </div>
     );

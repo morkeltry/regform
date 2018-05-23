@@ -12,9 +12,7 @@ class TitledInputElement extends Component {
       objection ?
         node.id+objection :
         false
-    status[node.id] = !!objection;
-    console.log(status);
-    console.log('ZE:', ZE());
+    status[node.id] = objection;
     update (status);
 
     return

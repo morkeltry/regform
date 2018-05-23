@@ -4,7 +4,7 @@ import './Submit.css';
 class Submit extends Component {
 
 submitHandler = ()=> {
-
+  console.log ('getting clicks');
 }
 
   render() {
@@ -12,7 +12,7 @@ submitHandler = ()=> {
     return (
       <div
         className= {clickable ? "submit-button clickable" : "submit-button"}
-          onSubmit= {clickable ? this.submitHandler : ()=>{}}
+        onClick = {clickable ? this.submitHandler : this.props.nag}
       >
         {this.props.title}
       </div>
