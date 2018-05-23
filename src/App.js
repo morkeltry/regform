@@ -4,6 +4,16 @@ import TitledInputElement from './TitledInputElement';
 import './App.css';
 
 class App extends Component {
+  constructor () {
+    super ();
+    this.state = {
+      validationError : false
+    }
+    this.updateValidationErrorState = (newState) => {
+      this.setState ({validationError: newState})
+    };
+  }
+
   render() {
     return (
       <div className="App">
@@ -18,18 +28,22 @@ class App extends Component {
             type="email"
             name="email"
             placeholder="me@me.me"
+            update={this.updateValidationErrorState}
           />
           <TitledInputElement
             title="Phone: "
             type="text"
             name="phone"
-            placeholder="We may need to contact you about your appointment" />
+            placeholder="We may need to contact you about your appointment"
+            update={this.updateValidationErrorState}
+          />
           <TitledInputElement
             title="Choose a username "
             required
             type="text"
             name="username"
-            placeholder="Please enter your desired username" />
+            placeholder="Please enter your desired username"
+          />
           <TitledInputElement
             title="Enter a password "
             required
@@ -38,7 +52,8 @@ class App extends Component {
           <TitledInputElement
             title="Please tick this box if we may contact you with great stuff"
             type="checkbox"
-            name="consent"/>
+            name="consent"
+          />
         </form>
       </div>
     );

@@ -12,7 +12,6 @@ validators.phone = text => {
   const entireNumberRegExp = /[^0-9^ ^x^+]/ ;
   const numberWithoutPlusRegExp = /[^0-9^ ^x]/ ;
   const XsRegExp = new RegExp ('[x]','gi');
-console.log(typeof text);
   if (text.length <4)
     return ' too short';
   if (text.length >17)
