@@ -1,0 +1,49 @@
+
+.form-header {
+  width : 80vw;
+  align : center;
+  text-align : center;
+  background-color : #008060;
+  color : #e0e0e0;
+  padding : 0.5rem;
+  margin : 2rem 0.5rem;
+  border-radius: 1rem;
+}
+
+.form-flex {
+  display : flex;
+  flex-direction : column;
+  justify-content : center;
+  margin: 10vw;
+}
+
+.form-styled {
+  font-size : 1.25rem;
+  color` : red;
+}
+
+input {
+  width : 60vw;
+  font-size: inherit;
+  font-family: inherit;
+  color : inherit;
+  padding : 0 0.4rem;
+  border-radius: 0.2rem;
+  border: 1px solid #404040;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+}
+
+input[type='checkbox']  {
+  width : 4rem;
+  height : 1.75rem;
+  background : white;
+  border : 2px solid #505050;
+  margin-left: -1rem;
+}
+
+input[type='submit']  {
+  margin : 2rem 0.5rem;
+
+}

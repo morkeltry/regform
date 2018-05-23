@@ -2,6 +2,23 @@
   width : 95%
 }
 
+@keyframes animatetop {
+    from {top: -95vh; opacity: 0}
+    to {top: 5vh; opacity: 1}
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fefefe60;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #f080c0;
+    width: 95%;
+    box-shadow: 0 0.4rem 0.8rem 0 #00000030,0 0.5rem 2rem 0 #00000028;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
 .noshow {
   visibility : hidden
 }

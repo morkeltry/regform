@@ -2,23 +2,10 @@
 
 }
 
-.form-styled {
-  font-size : 3 rem;
-  color` : red;
+.App-header {
+  width : 100%;
 }
 
-input {
-  font-size: inherit;
-  font-family: inherit;
-  color : inherit;
-
-}
-
-.form-flex {
-  display : flex;
-  flex-direction : column;
-
-  margin: 20%;
-  font-size : 5 rem;
-
+.App-title {
+  text-align : center;
 }

@@ -1,5 +1,5 @@
 .flex-container {
-  width : 80vw;
+  /* width : 80vw; */
   display : flex;
   flex-direction : row;
   align-items: center;
@@ -11,13 +11,13 @@
 }
 
 .flex-child-left {
-  width : 50%;
-  margin-right: 0.5rem;
+  width : 40%;
+  margin-right: 1.5rem;
   text-align : right;
 }
 
 .flex-child-right {
-  width : 50%;
+  width : 60%;
   margin-left: auto;
   align : left;
 }

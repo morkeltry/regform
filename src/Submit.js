@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './Submit.css';
-// import {postUrl} from './post-url.js';
 
-const postUrl = 'https://g5xirepb1j.execute-api.eu-west-2.amazonaws.com/dev/post-test';
 const headers = {
     'Content-Type': 'multipart/form-data',
     'Accept': 'text/html'
@@ -10,7 +8,7 @@ const headers = {
 
 class Submit extends Component {
 
-  submitHandler = (ev, setters)=> {
+  submitHandler = (ev, url, setters)=> {
     // ev.preventDefault();
     console.log('Doing submit ',ev.target);
     console.log('parent:',ev.target.parentElement);
@@ -26,11 +24,14 @@ class Submit extends Component {
         type = "submit"
         value = {this.props.title}
         className = {clickable ? "submit-button clickable" : "submit-button"}
-        onClick = {clickable ? (ev) => {this.submitHandler(ev,this.props.setters)} : this.props.nag}
+        onClick = {
+          clickable ?
+            (ev) => {this.submitHandler (ev, this.props.url, this.props.setters)} :
+            this.props.nag
+        }
       >
       </input>
-    );
-  }
+  )}
 }
 
 export default Submit;
