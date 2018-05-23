@@ -1,7 +1,6 @@
 const validators = {};
 
 validators.email = text => {
-console.log('validating email');
   const emailRegExp = /[\w-]+@([\w-]+\.)+[\w-]+/ ;
   if (!emailRegExp.test(text))
     return ' does not appear valid'
@@ -10,7 +9,6 @@ console.log('validating email');
 }
 
 validators.phone = text => {
-console.log('validating phone');
   const entireNumberRegExp = /[^0-9^ ^x^+]/ ;
   const numberWithoutPlusRegExp = /[^0-9^ ^x]/ ;
   const XsRegExp = new RegExp ('[x]','gi');
@@ -30,7 +28,6 @@ console.log('validating phone');
 }
 
 validators.username = text => {
-console.log('validating username');
   const containsNonAlphanumPlusRegExp = /[^0-9^a-z-_#]/gi ;
   if (text.length < 3)
     return ' must be at least 3 alphanumeric characters (and _-#)';
@@ -42,7 +39,6 @@ console.log('validating username');
 }
 
 validators.password = (text) => {
-console.log('validating password');
   const containsLettersRegExp = /[a-z]/i ;
   const containsNonAlphanumericRegExp = /[^0-9^a-z]/ ;
   if (text.length < 8)
@@ -52,5 +48,8 @@ console.log('validating password');
 
   return false;
 }
+
+validators.consent = ()=> false;
+
 
 export default validators;

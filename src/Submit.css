@@ -1,0 +1,13 @@
+.submit-button {
+  text-align : center;
+  background-color : #88c0a0;
+  color : #d0e0d8;
+  padding : 0.5rem;
+  margin : 0.5rem;
+  border-radius: 1rem;
+}
+
+.clickable {
+  background-color : #008060;
+  color : #e0e0e0;
+}

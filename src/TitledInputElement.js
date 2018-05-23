@@ -4,7 +4,7 @@ import validators from './validators';
 
 class TitledInputElement extends Component {
 
-  validate(event, update) {
+  validate(event, update, ZE) {
     const status = {};
     const node = event.target;
     const objection = validators[node.id](node.value);
@@ -13,8 +13,8 @@ class TitledInputElement extends Component {
         node.id+objection :
         false
     status[node.id] = !!objection;
-    console.log(typeof update, update);
     console.log(status);
+    console.log('ZE:', ZE());
     update (status);
 
     return
@@ -32,7 +32,7 @@ class TitledInputElement extends Component {
             placeholder={this.props.placeholder || ''}
             onChange={
               this.props.update ?
-              event => this.validate (event, this.props.update) :
+              event => this.validate (event, this.props.update, this.props.ZE) :
               ()=>{}
             }
           />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ValidationErrorMessage.css';
 
 class ValidationErrorMessage extends Component {
 
