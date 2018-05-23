@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -9,9 +8,26 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <form>
+          <input
+            required
+            type="email"
+            name="email"
+            placeholder="me@me.me" />
+          <input type="text"
+            name="phone"
+            placeholder="We may need to contact you about your appointment" />
+          <input
+            required
+            type="text"
+            name="username"
+            placeholder="Please enter your desired username" />
+          <input
+            required
+            type="password" />
+          <input type="checkbox"
+            name="consent"/>
+        </form>
       </div>
     );
   }
