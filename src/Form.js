@@ -16,9 +16,6 @@ class Form extends Component {
       message : false,
       consent : false,    // no input to consent field shoudl not block submission;
     }
-    this.updateValidationErrorState = (newState) => {
-      this.setState (newState)
-    };
   };
 
   formFields = [
@@ -28,6 +25,24 @@ class Form extends Component {
     ['Enter a password ',   'password', 'password', null, true],
     ['Tick the box if we may contact you with great stuff', 'consent', 'checkbox', null]
   ];
+
+  hashOf = password => password;
+
+  updateValidationErrorState = (newState) => {
+    this.setState (newState)
+  };
+
+  //Yes, It's hacky :(
+  //An alternative would be to place values and erros objects in the state, but then .setState() wouldn't work as prettily.
+  // Better would be refactoring so that errors are stored in App state, and the ValidationErrorMessage is also rendered from App.
+  //  Oh, if only there were enough time!
+  updateFormValue= (field, value)=> {
+    const newState = {};
+    if (field==='password')
+      value = this.hashOf (value);
+    newState[field+'value'] = value;
+    this.setState (newState);
+  }
 
   //zeroErrors()==true if no validation errors, false otherwise
   zeroErrors = ()=>
@@ -47,7 +62,21 @@ class Form extends Component {
     this.setState ({message : newMessage});
   }
 
+  bundleData = state => {
+    const dataObj = {};
+    this.formFields.forEach (field => {
+      dataObj[field[1]] = state[field[1]+'value'];
+    });
+  return JSON.stringify(dataObj);
+  }
+
+
   render() {
+    //Quicky hacky way to have network message shown in error display, without refactoring it back up into App.js
+    let settersOverride = this.props.asyncSetters;
+    settersOverride.onPostRequestFail = err => {
+      console.log (err); this.setState ({message : "Something went wrong. Maybe the server doesn't like JSON..."})}
+
     return (
       <div>
       <form className="form-flex form-styled"  action={postUrl} method="post" encType="multipart/form-data">
@@ -62,16 +91,18 @@ class Form extends Component {
             type = {type}
             placeholder = {placeholder}
             required = {!!required}
-            update = {this.updateValidationErrorState}      // setter
+            updateErrors = {this.updateValidationErrorState}       // setters
+            updateValues = {this.updateFormValue}
             errorState = {this.state[fieldContents[1]]}     //field name, store error as property named after it
         />})}
 
         <Submit
           title = 'OK, register me!'
-          action = {postUrl}against this
+          action = {postUrl}
+          data = {this.bundleData(this.state)}
           clickable = {this.zeroErrors}
           nag = {this.findErrors}
-          setters = {this.props.asyncSetters}
+          setters = {settersOverride}
          />
 
        <ValidationErrorMessage

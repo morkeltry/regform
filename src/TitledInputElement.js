@@ -4,9 +4,8 @@ import validators from './validators';
 
 class TitledInputElement extends Component {
 
-  validate(event, update, ZE) {
+  validate(node, update) {
     const status = {};
-    const node = event.target;
     const objection = validators[node.id](node.value);
     status.message =
       objection ?
@@ -16,6 +15,13 @@ class TitledInputElement extends Component {
     update (status);
 
     return
+  }
+
+  handleChange (event, updateErrors, updateFormValue) {
+    const node = event.target;
+    updateFormValue (node.name, node.value);
+    if (updateErrors)
+      this.validate (node, updateErrors);      //if no setter to set errors/ values, then don't validate
   }
 
   render() {
@@ -30,9 +36,9 @@ class TitledInputElement extends Component {
             placeholder={this.props.placeholder || ''}
             noValidate
             onChange={
-              this.props.update ?
-              event => this.validate (event, this.props.update, this.props.ZE) :
-              ()=>{}                                //if no setter to set errors, then don;t validate
+              (this.props.updateErrors) ?
+              event => {this.handleChange (event, this.props.updateErrors, this.props.updateValues)} :
+              ()=>{}                                //if no setter to set errors/ values, then don;t validate
             }
           />
       </div>
