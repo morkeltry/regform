@@ -9,12 +9,10 @@ const headers = {
 class Submit extends Component {
 
   submitHandler = (ev, url, setters)=> {
-    // ev.preventDefault();
-    console.log('Doing submit ',ev.target);
-    console.log('parent:',ev.target.parentElement);
-    // fetch (postUrl, headers)
-    //   .then (setters.onSuccess)
-    //   .catch (setters.onPostRequestFail)
+    ev.preventDefault();
+    fetch (url, headers)
+      .then (setters.onSuccess)
+      .catch (setters.onPostRequestFail)
   }
 
   render() {
@@ -28,8 +26,7 @@ class Submit extends Component {
           clickable ?
             (ev) => {this.submitHandler (ev, this.props.url, this.props.setters)} :
             this.props.nag
-        }
-      >
+        }>
       </input>
   )}
 }

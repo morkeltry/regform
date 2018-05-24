@@ -35,8 +35,7 @@ class TitledInputElement extends Component {
             }
           />
       </div>
-    );
-  }
+  )}
 }
 
 export default TitledInputElement;

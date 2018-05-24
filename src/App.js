@@ -32,7 +32,7 @@ class App extends Component {
 
         <Form
           action = {postUrl}
-          setters = {this.asyncSetters}
+          asyncSetters = {this.asyncSetters}
         />
 
          <ShowThanksModal

@@ -16,8 +16,7 @@ class ValidationErrorMessage extends Component {
           <div>{this.props.message}</div>
         }
       </div>
-    );
-  }
+  )}
 }
 
 export default ValidationErrorMessage;

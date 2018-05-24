@@ -15,7 +15,6 @@ class Form extends Component {
     this.state = {
       message : false,
       consent : false,    // no input to consent field shoudl not block submission;
-      showThankyou : false
     }
     this.updateValidationErrorState = (newState) => {
       this.setState (newState)
@@ -40,7 +39,7 @@ class Form extends Component {
     let newMessage =
       this.formFields
         .filter (field => this.state[field[1]])
-        .map(el=>el[1]+this.state[el[1]])
+        .map(el=>el[1]+this.state[el[1]]);
     if (!newMessage.length && !this.zeroErrors())
       newMessage = 'Please fill in the required fields'
     this.setState ({message : newMessage});
@@ -53,20 +52,21 @@ class Form extends Component {
         <p className="form-header"> Please fill in our beautifully styled form </p>
 
         {this.formFields.map (fieldContents => {
-        const [title, name, type, placeholder, required] = fieldContents;
-        return <TitledInputElement
-          title = {title}
-          name = {name}
-          key = {name}
-          type = {type}
-          placeholder = {placeholder}
-          required = {!!required}
-          update = {this.updateValidationErrorState}
-          errorState = {this.state[fieldContents[1]]}
+          const [title, name, type, placeholder, required] = fieldContents;
+          return <TitledInputElement
+            title = {title}
+            name = {name}
+            key = {name}
+            type = {type}
+            placeholder = {placeholder}
+            required = {!!required}
+            update = {this.updateValidationErrorState}
+            errorState = {this.state[fieldContents[1]]}
         />})}
 
         <Submit
           title = 'OK, register me!'
+          action = {postUrl}
           clickable = {this.zeroErrors}
           nag = {this.findErrors}
           setters = {this.props.asyncSetters}
