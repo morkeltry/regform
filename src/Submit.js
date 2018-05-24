@@ -10,10 +10,10 @@ class Submit extends Component {
 
   //functionality incomplete - commenting out preventDefault() allows form submission by default behaviour
   submitHandler = (ev, url, setters)=> {
-    ev.preventDefault();
-    fetch (url, {headers: headers})
-      .then (setters.onSuccess)
-      .catch (setters.onPostRequestFail)
+    // ev.preventDefault();
+    // fetch (url, {headers: headers})
+    //   .then (setters.onSuccess)
+    //   .catch (setters.onPostRequestFail)
   }
 
   render() {
