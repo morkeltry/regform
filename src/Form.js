@@ -29,11 +29,13 @@ class Form extends Component {
     ['Tick the box if we may contact you with great stuff', 'consent', 'checkbox', null]
   ];
 
+  //zeroErrors()==true if no validation errors, false otherwise
   zeroErrors = ()=>
     this.formFields.every (field =>
       this.state[field[1]] === false
     )
 
+  //checks both for validation errors and for empty fields
   findErrors = (ev)=> {
     ev.preventDefault();
     let newMessage =
@@ -60,13 +62,13 @@ class Form extends Component {
             type = {type}
             placeholder = {placeholder}
             required = {!!required}
-            update = {this.updateValidationErrorState}
-            errorState = {this.state[fieldContents[1]]}
+            update = {this.updateValidationErrorState}      // setter
+            errorState = {this.state[fieldContents[1]]}     //field name, store error as property named after it
         />})}
 
         <Submit
           title = 'OK, register me!'
-          action = {postUrl}
+          action = {postUrl}against this
           clickable = {this.zeroErrors}
           nag = {this.findErrors}
           setters = {this.props.asyncSetters}

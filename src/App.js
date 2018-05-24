@@ -15,7 +15,7 @@ class App extends Component {
   };
 
   asyncSetters = {
-    onSuccess : result => this.setState ({showThankyou : true}),
+    onSuccess : result => {console.log(result); this.setState ({showThankyou : true})},
     onPostRequestFail : err => {console.log (err); this.setState ({message : 'Something went wrong. Please try again in '+Math.floor(Math.random()*10)+ 'minutes'})}
   }
 
