@@ -16,6 +16,12 @@
   text-align : right;
 }
 
+.fieldname-text {
+  font-family: 'Londrina Solid', cursive;
+  font-weight: 400;
+  text-shadow: 0 0 5px white;
+}
+
 .flex-child-right {
   width : 60%;
   margin-left: auto;
@@ -23,19 +29,12 @@
 }
 
 .placeholder {
-  color : #f0e8e0;
+  color : #f0e4c8;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    font-style : italic;
-    color: #f0e4c8;
+    /* font-style : italic; */
+    font-family: 'Courgette', cursive;
+    color: #e8d8c0;
     opacity: 1; /* Firefox */
-}
-
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #f0e8e0;;
-}
-
-::-ms-input-placeholder { /* Microsoft Edge */
-    color: #f0e0d0;;
 }

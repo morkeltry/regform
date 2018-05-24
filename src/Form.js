@@ -24,7 +24,7 @@ class Form extends Component {
 
   formFields = [
     ['Email: ',             'email',    'email',  'me@me.me', true],
-    ['Phone: ',             'phone',    'text',   'We may need to contact you about your appointment', true],
+    ['Phone: ',             'phone',    'text',   'We may call about your appointment', true],
     ['Choose a username  ', 'username', 'text',   'Please enter your desired username', true],
     ['Enter a password ',   'password', 'password', null, true],
     ['Tick the box if we may contact you with great stuff', 'consent', 'checkbox', null]

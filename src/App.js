@@ -26,8 +26,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Register yourself, yo..</h1>
+        <header className="App-header header-blur">
+          <h1 className="App-title">Register with us</h1>
         </header>
 
         <Form

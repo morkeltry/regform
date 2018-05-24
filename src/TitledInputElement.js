@@ -21,7 +21,7 @@ class TitledInputElement extends Component {
   render() {
     return (
       <div className="flex-container">
-        <label htmlFor={this.props.name} className="flex-child-left"> {this.props.title} </label>
+        <label htmlFor={this.props.name} className="flex-child-left fieldname-text"> {this.props.title} </label>
           <input className="flex-child-right"
             id={this.props.name}
             required={this.props.required}

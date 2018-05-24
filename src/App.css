@@ -1,9 +1,22 @@
-.body {
+@import url('https://fonts.googleapis.com/css?family=Courgette|Londrina+Solid|Merienda:700');
 
+.App {
+  background-image : url('./jungle.png');
+  font-family: 'Londrina Solid', cursive;
+  font-weight: 300;
 }
 
 .App-header {
   width : 100%;
+  padding-top : 2rem;
+  font-family: 'Merienda', cursive;
+  font-weight : 700;
+  font-size : 1.5rem;
+  color : #321806;
+}
+
+.header-blur {
+  text-shadow: 0 0 5px white;
 }
 
 .App-title {

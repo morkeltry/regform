@@ -40,7 +40,7 @@ validators.username = text => {
 
 validators.password = (text) => {
   const containsLettersRegExp = /[a-z]/i ;
-  const containsNonAlphanumericRegExp = /[^0-9^a-z]/ ;
+  const containsNonAlphanumericRegExp = /[^0-9^a-z]/i ;
   if (text.length < 8)
     return ' must be at least 8 characters'
   if (!containsNonAlphanumericRegExp.test(text) || !containsLettersRegExp.test(text))
