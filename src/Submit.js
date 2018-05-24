@@ -9,10 +9,10 @@ const headers = {
 class Submit extends Component {
 
   submitHandler = (ev, url, setters)=> {
-    ev.preventDefault();
-    fetch (url, headers)
-      .then (setters.onSuccess)
-      .catch (setters.onPostRequestFail)
+    // ev.preventDefault();
+    // fetch (url, headers)
+    //   .then (setters.onSuccess)
+    //   .catch (setters.onPostRequestFail)
   }
 
   render() {
